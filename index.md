@@ -1,4 +1,4 @@
-# MAT367 - Intro to Differential Geometry
+# MAT367 - Differential Geometry
 
 Winter 2021 session, taught by [Robert Jerrard](http://www.math.toronto.edu/rjerrard/).
 
