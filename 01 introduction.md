@@ -89,7 +89,7 @@ An $m$-dimensional manifold is a set $M$ with a maximal $m$-dimensional atlas.
 
 For example, with this definition, we can define some problematic "manifolds":
 
-- Let $M = \R$ and $\A = \curlies{U_\alpha}_{\alpha \in \R}$ where every $U_\alpha = \curlies \alpha$ and every $\phi_\alpha (x) = 0$. $\A$ is a maximal $0$-dimensional atlas, so this fits our definition.
+- Let $M = \R$ and $\A = {\curlies{U_\alpha}_{\alpha \in \R}}$ where every $U_\alpha = \curlies \alpha$ and every $\phi_\alpha (x) = 0$. $\A$ is a maximal $0$-dimensional atlas, so this fits our definition.
   - We have shown $\R$ to be a 0-dimensional manifold. But this is not what we want - we'd like to think of $\R^1$ as a 1-dimensional manifold.
 - Let $A = (-\infty, 0) \times \curlies 0$, $B^+ = \curlies{(t, t) : t > 0}$, and $B^- = \curlies{(t, -t) : t > 0}$, each is a subset of $\R^2$. Let $M = A \cup B^+ \cup B^-$. For our atlas, we can define [...]
   - ![01 first definition bad manifold.png](01 first definition bad manifold.png)
