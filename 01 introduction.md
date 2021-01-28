@@ -66,9 +66,11 @@ A coordinate chart $(U, \phi)$ is **compatible** with an atlas $\A$ if it is com
 Let $\A$ be an atlas on $M$, and let $(U, \phi)$ and $(V, \psi)$ be two charts on $M$. If $(U, \phi)$ and $(V, \psi)$ are both compatible with $\A$, then they are compatible with each other.
 
 Consider $U \cap V$. Since they are coordinate charts on $M$ and the union of the domains of charts in $\A$ is $M$, we know that
+
 $$
 U \cap V = \bigcup_{\alpha \in A} U \cap V \cap U_\alpha = \bigcup_{\alpha \in A} (U \cap U_\alpha) \cap (V \cap U_\alpha)
 $$
+
 Since $U$ is compatible with every chart in $\A$, $U \cap U_\alpha$ is always open, and the same holds for $V$. Thus, $(U \cap U_\alpha) \cap (V \cap U_\alpha)$ is an open set for every $\alpha$, so each of these is open. An arbitrary union of open sets is open, so $U \cap V$ is open.
 
 ### Maximal atlases
@@ -89,7 +91,7 @@ An $m$-dimensional manifold is a set $M$ with a maximal $m$-dimensional atlas.
 
 For example, with this definition, we can define some problematic "manifolds":
 
-- Let $M = \R$ and $\A = {\curlies{U_\alpha}_{\alpha \in \R}}$ where every $U_\alpha = \curlies \alpha$ and every $\phi_\alpha (x) = 0$. $\A$ is a maximal $0$-dimensional atlas, so this fits our definition.
+- Let $M = \R$ and $\A = \curlies{(\curlies{\alpha}, \phi) : \alpha \in \R, \phi(x) = 0}$, so every $U_\alpha = \curlies \alpha$ and every $\phi_\alpha (x) = 0$. $\A$ is a maximal $0$-dimensional atlas, so this fits our definition.
   - We have shown $\R$ to be a 0-dimensional manifold. But this is not what we want - we'd like to think of $\R^1$ as a 1-dimensional manifold.
 - Let $A = (-\infty, 0) \times \curlies 0$, $B^+ = \curlies{(t, t) : t > 0}$, and $B^- = \curlies{(t, -t) : t > 0}$, each is a subset of $\R^2$. Let $M = A \cup B^+ \cup B^-$. For our atlas, we can define [...]
   - ![01 first definition bad manifold.png](01 first definition bad manifold.png)
@@ -115,6 +117,6 @@ $\phi : U \to \R^m$ is injective, so $\phi(p) \neq \phi(q)$. Since $\R^m$ is Hau
 - the $n$-sphere $S^n \subseteq \R^{n+1}$
 - the real projective plane $\RP n = (\R^3 \setminus \curlies{0})/\sim$ where $\x \sim \y$ when there exists $\lambda \neq 0$ so that $\x = \lambda \y$
   - note that $\RP n = \R^n \sqcup \R^{n-1} \sqcup ... \sqcup \R^1 \sqcup \R^0$
-- the real grassmanian $Gr(k, n)$, the set of all $k$-dimensional subspaces of $\R^n$, is a manifold of dimension $n-k$
+- the real Grassmanian $Gr(k, n)$, the set of all $k$-dimensional subspaces of $\R^n$, is a manifold of dimension $n-k$
   - $Gr(1, n) = \RP {n-1}$
 
