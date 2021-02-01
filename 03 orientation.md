@@ -17,9 +17,11 @@ $$
 ## Oriented manifolds
 
 Two charts $(U, \phi)$ and $(V, \psi)$ on $M$ are **orientation-compatible** if they are compatible and the transition map $\psi \circ \inv \phi$ is *orientation-preserving* on $\R^m$, i.e.
+
 $$
 \det(D(\psi \circ \inv \phi)) > 0 \text{ on } \phi(U \cap V)
 $$
+
 An *oriented atlas* is an atlas where any two coordinate charts are orienation-compatible.
 
 A manifold $M$ is **orientable** if it admits an oriented atlas.
