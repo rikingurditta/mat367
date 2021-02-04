@@ -62,6 +62,7 @@ $$
 ### Extension by zero
 
 Let $M$ be a manifold, $U \subseteq M$ be an open subset, and $g \in C^\infty(U)$ be a function so that $\supp(g) \subseteq U$ is closed in $M$. The **extension by zero** of $g$ is the function:
+
 $$
 \begin{align*}
 \widetilde g: M &\to \R \\
@@ -139,17 +140,20 @@ $$
 (z^0, ..., z^n) &\mapsto (z^0 : ... : z^n)
 \end{align*}
 $$
+
 So the natural projections from $S^n$ to $\RP{n}$ defined by identifying antipodal points are also smooth, as they are just compositions $\pi_1 \circ i$. This works similarly for projections from $S^{2n+1}$ to $\CP{n}$.
 
 ### Lifts
 
 For any function $F: \RP{n} \to N$, we can define by
+
 $$
 \begin{align*}
 \widetilde F: \R^{n+1} \setminus \curlies 0 &\to N \\
 \x &\mapsto F \circ \pi(\x)
 \end{align*}
 $$
+
 It is also clear that every function that is homogeneous of degree 0 is the lift of a function on $\RP{n}$.
 
 Thus we have a correspondence between functions on $\RP{n}$ and functions on $\R^{n+1}$ that are homogeneous of degree 0.
@@ -175,9 +179,11 @@ Suppose $M$ is a manifold with atlas $\A = \curlies{(U_\alpha, \phi_\alpha)}$. L
 ![04 relabelling.png](04 relabelling.png)
 
 Then $F$ is a diffeomorphism, because
+
 $$
 \widetilde \phi_\alpha \circ F \circ \inv\phi_\alpha = \phi_\alpha \circ \inv F \circ F \circ \inv\phi_\alpha = \id
 $$
+
 which is a diffeomorphism.
 
 Essentially what we have done here is "relabelled" the points of $M$, by sending them to points of $\widetilde M$ using $F$.
@@ -185,6 +191,7 @@ Essentially what we have done here is "relabelled" the points of $M$, by sending
 #### Abstracting the set away
 
 As a special case, given manifold $M$ with atlas $\A = \curlies{(U_\alpha, \phi_\alpha)}$, define $\widetilde M$ as follows:
+
 $$
 Q = \bigsqcup_\alpha \phi_\alpha(U_\alpha)
 $$
@@ -214,6 +221,7 @@ And about $S^1$:
 These two atlases show us that $\RP1$ and $S^1$ have similar structure.
 
 Motivated by this, we can define a diffeomorphism between them that is equal to $\inv\phi_+ \circ \phi_0$ on $U_0 = \RP1 \setminus \curlies{(0 : 1)}$. Luckily, the formula for the resulting function maps the remaining point $(0 : 1) \in \RP1$ to the remaining point $(1, 0) \in S^1$ in a smooth way, so we have found a diffeomorphism.
+
 $$
 \begin{align*}
 F: \RP1 &\to S^1 \\
@@ -224,6 +232,7 @@ $$
 ### $\C P^1$ and $S^2$ are diffeomorphic
 
 This can be done in a similar way to above - find the coordinate charts that expose similar structure, compose them, and check that the formula extends nicely to the rest of the manifold. The result even has a similar formula:
+
 $$
 F(z^0 : z^1) = \frac{1}{\abs{\mathbf z}^2}((z^1)^2 - (z^0)^2, 2z^0z^1)
 $$
@@ -231,6 +240,7 @@ $$
 ## Hopf Fibration
 
 Consider the projection map $\pi: S^{2n+1} \to \CP{n}$ (identifying $S^{2n+1}$ with its embedding within $\C^{n+1}$). Writing $z$ for a point in $S^{2n+1}$ and $[z] = \pi(z)$ for a point in $\CP{n}$, consider the preimage $\inv\pi\curlies{[z]}$.
+
 $$
 \begin{align*}
 [z] &= \pi(z) \\
@@ -239,6 +249,7 @@ $$
 &= \pi(\lambda z^0, ..., \lambda z^n) \text{ for any $\lambda \in S^1 \subseteq \C$}
 \end{align*}
 $$
+
 (we require $\abs \lambda = 1$ because we are working with points in $S^{2n+1}$, not all of $\C^{n+1}$)
 
 So every point in the preimage is $\lambda z$ for some $\lambda \in S^1$, so we can think of this preimage as a copy of $S^1$, i.e. a circle.
@@ -248,9 +259,11 @@ Since no point $z \in S^{2n+1}$ is in the preimage of more than one $[z] \in \CP
 Now consider the special case, $n = 1$, i.e. consider $\pi: S^3 \to \CP1$. Then we see that $S^3$ is a disjoint union of circles, indexed by points in $\CP1 = S^2$. This correspondence between points of $S^2$ and circles of $S^3$ is the **Hopf fibration**.
 
 Composing $\pi$ with the diffeomorphism $d$ between $\CP1$ and $S^2$, we have the map
+
 $$
 \tau(w, z) = d \circ \pi(w, z) = d(w : z) = (\abs{w}^2 - \abs{z}^2, \text{Re}(2z \overline w), \text{Im}(2z \overline w))
 $$
+
 Then we can calculate the Hopf fibration for a given point:
 
 $\tau(w, z) = (1, 0, 0)$ iff $\abs w = 1, z = 0$, which defines a circle.
