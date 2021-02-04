@@ -249,14 +249,15 @@ Now consider the special case, $n = 1$, i.e. consider $\pi: S^3 \to \CP1$. Then 
 
 Composing $\pi$ with the diffeomorphism $d$ between $\CP1$ and $S^2$, we have the map
 $$
-\tau(w, z) = d \circ \pi(w, z) = d(w : z) = (\abs{w}^2 - \abs{z}^2, 2z \overline w) \in \R \times \C
+\tau(w, z) = d \circ \pi(w, z) = d(w : z) = (\abs{w}^2 - \abs{z}^2, \text{Re}(2z \overline w), \text{Im}(2z \overline w))
 $$
-Then we can calculate the Hopf fibration for a given point, for example the north pole $p = (1, 0) \in \R \times \C$ (or $(1, 0, 0) \in \R^3$).
+Then we can calculate the Hopf fibration for a given point:
 
-$\tau(w, z) = (1, 0)$ iff $\abs w = 1, z = 0$, which defines a circle.
+$\tau(w, z) = (1, 0, 0)$ iff $\abs w = 1, z = 0$, which defines a circle.
 
-Similarly, $\tau(w, z) = (-1, 0)$ iff $w = 0, \abs z = 1$.
+Similarly, $\tau(w, z) = (-1, 0, 0)$ iff $w = 0, \abs z = 1$.
 
-To see this in $\R^3$,
+We can see these circles in $\R^3$:
 
 [...]
+
