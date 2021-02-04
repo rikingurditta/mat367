@@ -38,9 +38,11 @@ By assumption, $\phi_\beta(U \cap U_\beta)$ is open. Since $\mathcal B$ is a sub
 ### Open subsets of manifolds are manifolds
 
 This follows from the previous theorem. If $U \subseteq M$ is a manifold, then we can define the atlas
+
 $$
 \A_U = \curlies{(V_\alpha, \psi_\alpha) : V_\alpha = U_\alpha \cap U, \psi_\alpha = \phi_\alpha \large\vert_{U \cap U_\alpha}}
 $$
+
 This is an atlas since by the previous theorem, $\psi_\alpha(V_\alpha)$ is always open, and furthermore every $\psi_\alpha$ is still compatible.
 
 ## Topology
@@ -86,6 +88,7 @@ Consider the unit sphere $S^n \subseteq \R^{n+1}$
 Consider $\RP 2 = \curlies{(x^0 : x^1 : x^2) : (x^0, x^1, x^2) \neq (0, 0, 0)}$.
 
 Recall that the standard atlas is $U_i = \curlies{(x^0 : x^1 : x^2) : x^i \neq 0}$ for $i = 0, 1, 2$ along with the functions
+
 $$
 \begin{align*}
 \phi_0(x^0 : x^1 : x^2) &= \left(\frac{x^1}{x^0}, \frac{x^2}{x^0}\right) \\
