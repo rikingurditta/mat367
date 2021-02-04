@@ -11,6 +11,7 @@ $$
 
 \newcommand{\A}{\mathcal A}
 \newcommand{\RP}[1]{\R P^{#1}}
+\newcommand{\CP}[1]{\C P^{#1}}
 
 \newcommand{\x}{\mathbf x}
 \newcommand{\y}{\mathbf y}
@@ -117,9 +118,43 @@ Let $M_1, M_2, M_3$ be manifolds, and $F_1 \in C^\infty(M_1, M_2)$ and $F_2 \in 
 
 ### Examples of smooth maps
 
-- the inclusion map $i : S^n \to \R^{n+1}$ is smooth
+The inclusion map $i : S^n \to \R^{n+1}$ is smooth.
 
-- if $F \in C^\infty(\R^{n+1}, N)$, then the restriction of $F$ to the sphere $F\vert_{S^n}: S^n \to N$ is smooth, because $F_{S^n} = F \circ i$
+If $F \in C^\infty(\R^{n+1}, N)$, then the restriction of $F$ to the sphere $F\vert_{S^n}: S^n \to N$ is smooth, because $F_{S^n} = F \circ i$.
+
+The natural projections to projective spaces are smooth, including
+
+$$
+\begin{align*}
+\pi_1: \R^{n+1} \setminus \curlies 0 &\to \RP{n} \\
+(x^0, ..., x^n) &\mapsto (x^0 : ... : x^n)
+\end{align*}
+$$
+
+and
+
+$$
+\begin{align*}
+\pi_2: \C^{n+1} \setminus \curlies 0 &\to \CP{n} \\
+(z^0, ..., z^n) &\mapsto (z^0 : ... : z^n)
+\end{align*}
+$$
+So the natural projections from $S^n$ to $\RP{n}$ defined by identifying antipodal points are also smooth, as they are just compositions $\pi_1 \circ i$. This works similarly for projections from $S^{2n+1}$ to $\CP{n}$.
+
+### Lifts
+
+For any function $F: \RP{n} \to N$, we can define by
+$$
+\begin{align*}
+\widetilde F: \R^{n+1} \setminus \curlies 0 &\to N \\
+\x &\mapsto F \circ \pi(\x)
+\end{align*}
+$$
+It is also clear that every function that is homogeneous of degree 0 is the lift of a function on $\RP{n}$.
+
+Thus we have a correspondence between functions on $\RP{n}$ and functions on $\R^{n+1}$ that are homogeneous of degree 0.
+
+Furthermore, $F$ is smooth if and only if $\widetilde F$ is smooth.
 
 ### Diffeomorphisms between manifolds
 
@@ -176,4 +211,52 @@ And about $S^1$:
 - $\phi_+(U_+ \cap U_-) = \phi_-(U_+ \cap U_-) = \R \setminus \curlies{0}$
 - $\ds \phi_- \circ \inv\phi_+(u) = \frac{1}{u}$
 
-Then we can let 
+These two atlases show us that $\RP1$ and $S^1$ have similar structure.
+
+Motivated by this, we can define a diffeomorphism between them that is equal to $\inv\phi_+ \circ \phi_0$ on $U_0 = \RP1 \setminus \curlies{(0 : 1)}$. Luckily, the formula for the resulting function maps the remaining point $(0 : 1) \in \RP1$ to the remaining point $(1, 0) \in S^1$ in a smooth way, so we have found a diffeomorphism.
+$$
+\begin{align*}
+F: \RP1 &\to S^1 \\
+(x^0 : x^1) &\mapsto \frac{1}{\abs \x}((x^1)^2 - (x^0)^2, 2x^0x^1)
+\end{align*}
+$$
+
+### $\C P^1$ and $S^2$ are diffeomorphic
+
+This can be done in a similar way to above - find the coordinate charts that expose similar structure, compose them, and check that the formula extends nicely to the rest of the manifold. The result even has a similar formula:
+$$
+F(z^0 : z^1) = \frac{1}{\abs{\mathbf z}^2}((z^1)^2 - (z^0)^2, 2z^0z^1)
+$$
+
+## Hopf Fibration
+
+Consider the projection map $\pi: S^{2n+1} \to \CP{n}$ (identifying $S^{2n+1}$ with its embedding within $\C^{n+1}$). Writing $z$ for a point in $S^{2n+1}$ and $[z] = \pi(z)$ for a point in $\CP{n}$, consider the preimage $\inv\pi\curlies{[z]}$.
+$$
+\begin{align*}
+[z] &= \pi(z) \\
+&= \pi(z^0, ..., z^n) \\
+&= \pi(\lambda z^0, ..., \lambda z^n) \text{ for any $\lambda \in \C$, $\abs \lambda = 1$} \\
+&= \pi(\lambda z^0, ..., \lambda z^n) \text{ for any $\lambda \in S^1 \subseteq \C$}
+\end{align*}
+$$
+(we require $\abs \lambda = 1$ because we are working with points in $S^{2n+1}$, not all of $\C^{n+1}$)
+
+So every point in the preimage is $\lambda z$ for some $\lambda \in S^1$, so we can think of this preimage as a copy of $S^1$, i.e. a circle.
+
+Since no point $z \in S^{2n+1}$ is in the preimage of more than one $[z] \in \CP{n}$, these circles are all disjoint, so we have partitioned $S^{2n+1}$ into circles.
+
+Now consider the special case, $n = 1$, i.e. consider $\pi: S^3 \to \CP1$. Then we see that $S^3$ is a disjoint union of circles, indexed by points in $\CP1 = S^2$. This correspondence between points of $S^2$ and circles of $S^3$ is the **Hopf fibration**.
+
+Composing $\pi$ with the diffeomorphism $d$ between $\CP1$ and $S^2$, we have the map
+$$
+\tau(w, z) = d \circ \pi(w, z) = d(w : z) = (\abs{w}^2 - \abs{z}^2, 2z \overline w) \in \R \times \C
+$$
+Then we can calculate the Hopf fibration for a given point, for example the north pole $p = (1, 0) \in \R \times \C$ (or $(1, 0, 0) \in \R^3$).
+
+$\tau(w, z) = (1, 0)$ iff $\abs w = 1, z = 0$, which defines a circle.
+
+Similarly, $\tau(w, z) = (-1, 0)$ iff $w = 0, \abs z = 1$.
+
+To see this in $\R^3$,
+
+[...]
