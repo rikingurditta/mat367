@@ -222,7 +222,7 @@ $p$ is a **critical point** of $F$ if $\rank_p F < min(\dim M, \dim N)$, ie. if 
 
 ## Smooth maps of maximal rank when $\dim M = \dim N$
 
-### Inverse function theorem on $\R^m$
+### Inverse function theorem in Euclidean space
 
 Let $U, V$ are open subsets of $\R^m$ and $F \in C^\infty(U, V)$. Let $p \in U$ be a point where $D_p F$ is invertible. Then there exists an open neighbourhood $U_1 \subseteq U$ of $p$ such that $F\vert_{U_1}: U_1 \to F(U_1)$ is a diffeomorphism.
 
@@ -231,15 +231,19 @@ Let $U, V$ are open subsets of $\R^m$ and $F \in C^\infty(U, V)$. Let $p \in U$ 
 Let $M, N$ be $m$-dimensional manifolds, and $F \in C^\infty(M, N)$. Let $p \in M$ be a point at which $\rank_p F = m$. Then there exists an open neighbourhood $U \subseteq M$ of $p$ such that $F\vert_U: U \to F(U)$ is a diffeomorphism.
 
 Since $F$ is smooth at $p$, there are charts $(U, \phi)$ and $(V, \psi)$ around $p$ and $F(p)$ so that
+
 $$
 \widetilde F = \psi \circ F \circ \inv\phi
 $$
+
 is a map from $R^m$ to $\R^m$ that is smooth at $p$.
 
 Since $F$ has maximal rank, there exists $W \subseteq \phi(U)$ containing $p$ so that $\widetilde F \vert_W$ is a diffeomorphism from $W$ onto its image. If $S = \inv\phi(W)$, then $S$ is open, and
+
 $$
 F \vert_S = \inv\psi \circ \widetilde F \circ \phi \large\vert_S
 $$
+
 is a diffeomorphism from $S$ to its image.
 
 #### Local diffeomorphisms
@@ -249,12 +253,14 @@ A function $F: M \to N$ is a **local diffeomorphism** if $\rank_p F = m$ for eve
 This is just nice terminology for functions where we can apply the inverse function theorem at every point.
 
 For example, the quotient map
+
 $$
 \begin{align*}
 Q: S^n &\to \RP{n} \\
 (x^0, ..., x^n) &\mapsto (x^0 : ... : x^n)
 \end{align*}
 $$
+
 is a local diffeomorphism.
 
 ### Orientation preserving/reversing maps
@@ -266,51 +272,65 @@ If $\rank_p F = m$ and $(F(U), \phi \circ \inv F)$ is a chart in the given orien
 ### Degree of a map
 
 Define the orientation detecting function
+
 $$
 \epsilon_p(F) = \begin{cases}
 1 & \text{if $F$ is orientation preserving at $p$} \\
 -1 & \text{if $F$ is orientation reversing at $p$}
 \end{cases}
 $$
+
 We define the **degree of F** at $q \in N$ as
+
 $$
 \deg_q F = \sum_{q \in \inv F \curlies q} \epsilon_p(F)
 $$
+
 assuming that this makes sense at $q$, i.e. assuming that $\inv F \curlies q$ is finite and $\rank_p(F) = m$ at all $p \in \inv F \curlies q$. If $\inv F \curlies q = \emptyset$ then we define $\deg_q F = 0$.
 
 We will see later that the degree has many nice properties. For example if $M$ is compact and $N$ is connected then $\deg_q F$ is independent of $q$ (i.e. it is the same at all $q \in N$).
 
+We also see that this is a generalization of the winding number when $N = S^1$.
+
 ## Smooth maps of maximal rank when $\dim M > \dim N$
 
-### Implicit function theorem on $\R^m$
+### Implicit function theorem in Euclidean space
 
 Suppose $m > n$ and let $U \subseteq \R^m$ and $V \subseteq \R^n$ be open sets. Let $F \in C^\infty(U, V)$ and let $p \in U$ be a point where $F$ has maximal rank, i.e. $\rank_p F = n$. Then there exists an open neighbourhood $U_1 \subseteq U$ of $p$ and a diffeomorphism $\kappa: U_1 \to \kappa(U_1) \subseteq \R^m$ so that
+
 $$
 F \circ \inv \kappa(u^1, ..., u^m) = (u^{m-n+1}, ..., u^m)
 $$
+
 i.e., there is some diffeomorphism or *change of coordinates* so that $F$ simply projects $(u^1, ..., u^m)$ into the last $n$ coordinates.
 
 **Proof.**
 
 Since $F$ has maximal rank, $\rank_p F = n$, so $D_p F$ has $n$ linearly independent columns. We can permute the order of the coordinates of $\R^m$ so that
+
 $$
 D_p F = \begin{pmatrix} C & D\end{pmatrix}
 $$
+
 where $D$ is the $n \times n$ matrix consisting of the $n$ linearly independent columns, and $C$ is an $n \times (m - n)$ matrix with the rest of the columns. Therefore $D$ is invertible.
 
 Suppose $\x \in \R^m$, then we can write $\x = (x', x'')$ where $x' \in \R^{m - n}$ and $x'' \in \R^n$. Then we can define
+
 $$
 \begin{align*}
 G: U &\to \R^m \\
 \x = (x', x'') &\mapsto (x', F(\x))
 \end{align*}
 $$
+
 i.e., replace the last $n$ coordinates of $\x$ with the value of $F$ at $\x$.
 
 Then, taking the derivative of $G$, we see
+
 $$
 D_p G = \begin{pmatrix} I_{m-n} & 0 \\ C & D \end{pmatrix}
 $$
+
 where $I_{m - n}$ is the $(m - n) \times (m - n)$ identity matrix. Clearly $D_p G$ is invertible so $\rank_p G = m$, so we can apply the inverse function theorem to find a neighbourhood $U_1$ of $p$ so that $\kappa = G\vert_{U_1}$ is a diffeomorphism between $U_1$ and $\kappa(U_1) \subseteq \R^m$. Since $\kappa$ and $G$ are the same map, $G \circ \inv\kappa(u', u'') = (u', u'')$ for all $(u', u'') \in \kappa(U_1)$. Since the last $n$ coordinates of $G$ are just $F$, this means that $F \circ \inv\kappa(u', u'') = u''$.
 
 ### Normal form for submanifolds
@@ -318,9 +338,11 @@ where $I_{m - n}$ is the $(m - n) \times (m - n)$ identity matrix. Clearly $D_p 
 This is more or less a generalization of the implicit function theorem.
 
 Let $M, N$ be $m, n$-dimensional manifolds, respectively, with $m > n$. Let $F \in C^\infty(M, N)$ and let $p \in M$ be a point where $F$ has maximal rank, i.e. $\rank_p F = n$. Then there exist coordinate charts $(U, \phi)$ around $p$ and $(V, \psi)$ around $F(p)$ so that $F(U) \subseteq V$, and
+
 $$
 \psi \circ F \circ \inv\phi(u', u'') = u''
 $$
+
 for all $(u', u'') \in \phi(U) \subseteq \R^m$ where $u' \in R^{m - n}$ and $u'' \in R^n$. I.e., for some charts, $\psi \circ F \circ \inv\phi$ is a projection onto the last $n$ coordinates.
 
 In particular, for every $q \in F(U)$, $U \cap \inv F \curlies{q}$ is a submanifold.
@@ -330,18 +352,23 @@ In particular, for every $q \in F(U)$, $U \cap \inv F \curlies{q}$ is a submanif
 We know that there exist charts $(\widetilde U, \widetilde \phi)$ around $p$ and $(V, \psi)$ around $F(p)$ so that $\widetilde F = \psi \circ F \circ \inv{\widetilde \phi}$ is smooth and has rank $n$ at $\widetilde \phi(p)$.
 
 Then we can apply the implicit function theorem on $\widetilde F$ to find a function $\kappa$ and an open set $U_1 \subseteq \phi(U)$ so that
+
 $$
 \widetilde F \circ \inv\kappa(u', u'') = u''
 $$
+
 when $(u', u'') \in U_1$.
 
 Then if $(U, \phi) = (\inv{\widetilde \phi}(U_1), \kappa \circ \widetilde \phi)$, then $F(U) \subseteq F(\widetilde U) \subseteq V$ and
+
 $$
 \psi \circ F \circ \inv \phi(u', u'') = \widetilde F \circ \inv\kappa(u', u'') = u''
 $$
+
 so we have found the charts that we want.
 
 To prove the second part, let $q \in F(U)$, $S_q = U \cap \inv F \curlies q$, and $u_q'' = \psi(q)$. Then if we define
+
 $$
 \phi_q(x) = \phi(x) - (0, u_q'')
 $$
@@ -349,17 +376,21 @@ $$
 then $(U, \phi_1)$ is a submanifold chart for $S_q$.
 
 Let $x \in S_q \cap U$, then $\phi(x) = (u', u'')$, and
+
 $$
 \psi \circ F \circ \inv\phi(u', u'') = u''
 $$
 
 Furthermore, since $x \in S_q$, we know that $F(x) = q$, so
+
 $$
 u_q'' = \psi(q) = \psi \circ F(x) = \psi \circ F \circ \inv\phi(u', u'') = u''
 $$
+
 so $u_q'' = u''$.
 
 Putting it all together,
+
 $$
 \begin{align*}
 \phi_q(x) &= \phi(x) - (0, u_q'') \\
@@ -368,6 +399,7 @@ $$
 &= (u', 0)
 \end{align*}
 $$
+
 so $\phi_q(S_q \cap U) \subseteq \R^{m-n} \times \curlies{0^n}$, so it is a submanifold chart.
 
 ### Regular value theorem
@@ -377,9 +409,11 @@ Let $M, N$ be $m, n$-dimensional manifolds respectively where $m > n$ and let $F
 $q \in N$ is a **regular value** if every $p \in \inv F \curlies q$ is a regular point.
 
 The regular value theorem states that if $q \in N$ is a regular value, then $S = \inv F \curlies q$ is a submanifold of dimension $m - n$, i.e.
+
 $$
 \dim S = \dim M - \dim N
 $$
+
 This follows from the work immediately previous.
 
 #### Finding submanifolds with the regular value theorem
@@ -387,6 +421,7 @@ This follows from the work immediately previous.
 Consider the map $F : \R^{n+1} \to \R^n$ defined by $F(\x) = \abs{\x}^2$. Every $r > 0$ is a regular value of $F$, so $\inv F \curlies{r^2}$ defines a submanifold, specifically the sphere of radius $r$.
 
 Define $F : \Mat_\R(n) \to \text{Sym}_\R(n)$, i.e. from the $n \times n$ real matrices to the $n \times n$ symmetric matrices, as $F(A) = A^T A$. Then $O(n)$, the set of orthogonal matrices, is the preimage of the identity $I$, i.e. $\inv F \curlies I = O(n)$. Suppose $A \in O(n)$, then considering $D_A F$ as a linear map, for any $X \in \Mat_\R(n)$ we have
+
 $$
 \begin{align*}
 D_A F(X) &= \frac{d}{dt}\bigg\vert_{t = 0} F(A + tX) \\
@@ -395,7 +430,9 @@ D_A F(X) &= \frac{d}{dt}\bigg\vert_{t = 0} F(A + tX) \\
 &= A^T X + X^T A
 \end{align*}
 $$
+
 Suppose $Y \in \text{Sym}_\R(n)$, then
+
 $$
 \begin{align*}
 D_A F\left(\frac{1}{2} AY\right) &= \frac{1}{2} (A^T AY + (AY)^T A) \\
@@ -406,4 +443,106 @@ D_A F\left(\frac{1}{2} AY\right) &= \frac{1}{2} (A^T AY + (AY)^T A) \\
 &= Y
 \end{align*}
 $$
+
 so $D_A F$ is a surjective function, so it must have maximal rank, so $\rank_A F = n$, so $A$ is a regular point for every $A \in O(n)$. Thus $I$ is a regular value, so $O(n)$ is a submanifold of $\Mat_\R(n)$.
+
+### Submersions
+
+Let $M, N$ be $m, n$-dimensional manifolds respectively where $m > n$ and let $F \in C^\infty(M, N)$. Then $F$ is a **submersion** if $\rank_p F = n$ for all $p \in M$, i.e. if every point is a regular point.
+
+The normal form theorem tells us that every smooth map is locally a submersion around its regular points.
+
+## Smooth maps of maximal rank when $\dim M < \dim N$
+
+### Flattening in Euclidean space
+
+Let $U, V$ be open subsets of $\R^m, \R^n$ respectively with $m < n$, let $F \in C^\infty(U, V)$, and let $p \in U$ be a point where $F$ has maximal rank, i.e. $\rank_p F = m$. Then there exist open neighbourhoods $U_1 \subseteq U$ around $p$ and $V_1 \subseteq V$ around $F(p)$ as well as a diffeomorophism $\chi: V_1 \to \chi(V_1) \subseteq \R^n$ so that
+
+$$
+\chi \circ F(u) = (u, 0) \in \R^m \times \R^{n-m}
+$$
+
+for every $u \in U_1$, i.e., $F(U_1)$ can be locally "flattened".
+
+**Proof.**
+
+$D_p F$ is an $n \times m$ matrix with rank $m$, so $D_p F$ has $m$ linearly independent rows. Similarly to when we proved the implicit function theorem, we can assume that the first $m$ rows are linearly independent, so
+
+$$
+D_p F = \begin{pmatrix} A \\ C \end{pmatrix}
+$$
+
+where $A$ is invertible.
+
+We define a function
+
+$$
+\begin{align*}
+G : U \times \R^{n-m} &\to \R^n \\
+(x, y) &\mapsto F(x) + (0, y)
+\end{align*}
+$$
+
+then taking its derivative at $(p, 0)$, we see that
+
+$$
+D_{(p, 0)} G = \begin{pmatrix} A & 0 \\ C & I_{n-m} \end{pmatrix}
+$$
+
+which is invertible. Thus, we can apply the inverse function theorem to see that $G$ is locally a diffeomorphism from some neighbourhood of $(p, 0)$ to some neighbourhood $V_1$ of $G(p, 0) = F(p)$. Let $\chi = \inv G$ be the local inverse, then $\chi: V_1 \to \chi(V_1)$ is a diffeomorphism. Let $U_1 = \inv F(V_1) \cap U$, then if $x \in U_1$ we have
+
+$$
+\begin{align*}
+\chi \circ F(x) = \chi \circ G(x, 0) = (x, 0)
+\end{align*}
+$$
+
+### Normal form for immersions
+
+Let $M, N$ be $m, n$-dimensional manifolds, respectively, with $m < n$. Let $F \in C^\infty(M, N)$ and let $p \in M$ be a point where $F$ has maximal rank. Then, applying the previous theorem, there exist coordinate charts $(U, \phi)$ around $p$ and $(V, \psi)$ around $F(p)$ so that $F(U) \subseteq V$ and
+
+$$
+\psi \circ F \circ \inv\phi(u) = (u, 0)
+$$
+
+and $F(U)$ is an $m$-dimensional submanifold.
+
+### Immersions
+
+$F \in C^\infty(M, N)$ is an **immersion** if $\rank_p F = \dim M$ for all $p \in M$, i.e. if we can apply the theorem above at every point.
+
+An **immersed submanifiold** is the image of an immersion. Note that this is not necessarily a manifold! For example,
+
+$$
+\begin{align*}
+F : \R &\to \R^2 \\
+t &\mapsto (\sin(t), \sin(2t)) \\
+F'(t) &= (\cos(t), 2\cos(2t))
+\end{align*}
+$$
+
+is a smooth function that always has maximal rank, so it is an immersion. However, its image is a figure 8, which is clearly not a manifold.
+
+<img src="05 figure 8.png" alt="05 figure 8.png" style="zoom:67%;" />
+
+Even adding injectivity is not enough! For example, there is no submanifold chart around the circled point in the following picture:
+
+![05 injective immersion not submanifold.png](05 injective immersion not submanifold.png)
+
+Note that if $S$ is a submanifold of $M$, then the inclusion map $i : S \to M$ is an immersion.
+
+An **embedding** is an immersion whose image is a submanifold. So our previous examples show immersions that are not embeddings.
+
+### Compact manifolds and embeddings
+
+Suppose $M$ is compact and $F : M \to N$ is an injective immersion. Then $F(M)$ is an embedded submanifold of $N$.
+
+**Proof.**
+
+Let $S = F(M)$, and let $p \in M$ and $q = F(p) \in S$. We want to find a submanifold chart around $q$.
+
+Using the normal form for immersions, there are charts $(U, \phi)$ around $p$ and $(V, \psi)$ around $q$ so that $\psi \circ F \circ \inv\phi(u)  = (u, 0)$ for all $u \in \phi(U)$. Based on this, we'd like to take $(V, \psi)$ as a submanifold chart. However, right now, we only know that it works locally, around $F(U) \cap S$, not globally in $S$ around $q$. More specifically, we know that $\psi \circ F \circ \inv\phi(u)  = (u, 0)$ for all $u \in \phi(U)$, but we do not know that this is true for all $u \in \phi \circ \inv F(V)$. Some other points could map into $V$, adding weird features that prevent $\psi$ from being a submanifold chart (see earlier example of injective immersion that is not an embedding).
+
+Let $A = M \setminus U$. This is compact, since it $M$ is compact and $A$ is a closed subset of $M$. Since $F$ is smooth, it is also continuous, so $F(A) \subseteq N$ is compact. This means that it is closed. Since $F$ is injective, we know that $F(p) \notin F(A)$.
+
+Let $V_1 = V \setminus F(A)$. This is open because we are removing a closed set. Let $\psi_1 = \psi \vert_{V_1}$, then $(V_1, \psi_1)$ is definitely a submanifold chart.
