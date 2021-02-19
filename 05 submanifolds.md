@@ -546,3 +546,63 @@ Using the normal form for immersions, there are charts $(U, \phi)$ around $p$ an
 Let $A = M \setminus U$. This is compact, since it $M$ is compact and $A$ is a closed subset of $M$. Since $F$ is smooth, it is also continuous, so $F(A) \subseteq N$ is compact. This means that it is closed. Since $F$ is injective, we know that $F(p) \notin F(A)$.
 
 Let $V_1 = V \setminus F(A)$. This is open because we are removing a closed set. Let $\psi_1 = \psi \vert_{V_1}$, then $(V_1, \psi_1)$ is definitely a submanifold chart.
+
+### The Steiner surface
+
+Define the set
+
+$$
+S = \curlies{(x, y, z) \in \R^3 : x^2y^2 + y^2z^2 + z^2x^2 = xyz}
+$$
+
+So if $f(x, y, z) = x^2y^2 + y^2z^2 + z^2x^2 - xyz$, then $S = \inv f \curlies 0$.
+
+Let $P = \curlies{(x, y, z) \in \R^3 : xyz = 0}$ (i.e. the union of the $xy$, $yz$, $zx$ coordinate planes) and let $U = \R^3 \setminus P$.
+
+- $S \cap P$ is the union of the coordinate axes, i.e. the set of points where only one of $x, y, z$ is zero (or all three)
+- $S \cap U$ is a submanifold, since $0$ is a regular value of $f \vert_U$
+  - $S \cap U$ is a subset of $S^2 \subseteq \R^3$
+
+Define the function
+
+$$
+\begin{align*}
+F : S \cap U &\to \curlies{(\alpha : \beta : \gamma) \in \RP2 : \alpha\beta\gamma \neq 0} \\
+(x, y, z) &\mapsto \left(\frac{1}{x} : \frac{1}{y} : \frac{1}{z}\right)
+\end{align*}
+$$
+
+then $F$ is a diffeomorphism. To see this, notice that $S \cap U \subseteq U = P^C$, so for every point $(x, y, z) \in S \cap U$, $xyz \neq 0$. Then, considering the equation that defines $S$,
+
+$$
+\begin{align*}
+x^2y^2 + y^2z^2 + z^2x^2 &= xyz \\
+\frac{x^2 y^2}{xyz} + \frac{y^2 z^2}{xyz} + \frac{z^2 x^2}{xyz} &= 1 \\
+\frac{xy}{z} + \frac{yz}{x} + \frac{zx}{y} &= 1 \\
+\frac{xyz}{z^2} + \frac{xyz}{x^2} + \frac{xyz}{y^2} &= 1
+\end{align*}
+$$
+
+Define $\ds a = \frac{\sqrt{xyz}}{x}$, $\ds b = \frac{\sqrt{xyz}}{y}$, and $\ds c = \frac{\sqrt{xyz}}{z}$. Then,
+
+$$
+\begin{align*}
+F(x, y, z) &= \left(\frac{1}{x} : \frac{1}{y} : \frac{1}{z}\right) \\
+&= \left(\frac{\sqrt{xyz}}{x} : \frac{\sqrt{xyz}}{y} : \frac{\sqrt{xyz}}{z}\right) \\
+&= (a : b : c)
+\end{align*}
+$$
+
+Now we will try to define an inverse for $F$. Given $(\alpha : \beta : \gamma) \in \RP2$ so that $\alpha\beta\gamma \neq 0$, we have defined a line in $\R^3$ that passes through the origin that does not coincide with any of the coordinate axes. This line definitely passes through the unit sphere twice, however only one of these intersections has a positive product of coordinates. So, there exists a unique point $(a, b, c) \in (\alpha : \beta : \gamma)$ so that
+
+$$
+a^2 + b^2 + c^2 = 1 \text{ and } abc > 0
+$$
+
+Motivated by this, we can find the inverse of $F$
+
+$$
+\inv F(\alpha : \beta : \gamma) = \frac{1}{\alpha^2 + \beta^2 + \gamma^2} (\alpha\beta, \beta\gamma, \gamma\alpha)
+$$
+
+This surface, $S \cap U$, which is diffeomorphic to a certain subset of $\RP2$, is called the **Steiner surface**. It is not $S$, not $RP2$, not an embedded manifold, and not an immersed manifold. Nonetheless, it is a well-known object.
