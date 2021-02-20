@@ -333,7 +333,7 @@ $$
 
 where $I_{m - n}$ is the $(m - n) \times (m - n)$ identity matrix. Clearly $D_p G$ is invertible so $\rank_p G = m$, so we can apply the inverse function theorem to find a neighbourhood $U_1$ of $p$ so that $\kappa = G\vert_{U_1}$ is a diffeomorphism between $U_1$ and $\kappa(U_1) \subseteq \R^m$. Since $\kappa$ and $G$ are the same map, $G \circ \inv\kappa(u', u'') = (u', u'')$ for all $(u', u'') \in \kappa(U_1)$. Since the last $n$ coordinates of $G$ are just $F$, this means that $F \circ \inv\kappa(u', u'') = u''$.
 
-### Normal form for submanifolds
+### Normal form for submersions
 
 This is more or less a generalization of the implicit function theorem.
 
