@@ -1,4 +1,4 @@
-# sTopology
+# Topology
 
 $$
 \newcommand{\ds}{\displaystyle}

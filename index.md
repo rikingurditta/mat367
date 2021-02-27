@@ -10,3 +10,4 @@ Winter 2021 session, taught by [Robert Jerrard](http://www.math.toronto.edu/rjer
 4. [Smooth and Continuous Functions](04 smooth continuous functions)
 5. [Submanifolds](05 submanifolds)
 6. [Tangent Spaces](06 tangent spaces)
+

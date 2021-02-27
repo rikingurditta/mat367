@@ -10,6 +10,7 @@ $$
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Crit}{Crit}
 
 \newcommand{\A}{\mathcal A}
 \newcommand{\RP}[1]{\R P^{#1}}
@@ -326,3 +327,320 @@ w(gh) &= v((gh) \circ F) \\
 $$
 
 so $w$ satisfies the product rule at $F(p)$. Thus, $w \in T_{F(p)} N$.
+
+### Tangent map and curves
+
+Suppose $v \in T_p M$ is represented by a curve $\gamma : J \to M$ where $J \subseteq \R$ is an open interval around $0$. Then $(T_p F) (v)$ is represented by the curve $F \circ \gamma : J \to N$
+
+Suppose $\ds v(g) = \frac{d}{dt}\bigg\vert_{t=0} g(\gamma(t))$, then
+
+$$
+\begin{align*}
+(T_p F)(v)(g) &= v(g \circ F) = \frac{d}{dt}\bigg\vert_{t=0} (g \circ F)(\gamma(t)) \\
+&= \frac{d}{dt}\bigg\vert_{t=0} g(F \circ \gamma(t))
+\end{align*}
+$$
+
+which is what we wanted to show.
+
+### Push-forwards and pull-backs
+
+Let $F \in C^\infty(M, N)$. We can use $F$ to *transport* between certain "objects defined on $M$" and "objects defined on $N$:
+
+- if $I \subseteq \R$ is an interval and $\gamma \in C^\infty(I, M)$ is a smooth curve, then we can define the **push-forward of $\gamma$ by $F$** as $F _\ast \gamma = F \circ \gamma$
+- given $f \in C^\infty(N)$, we can define the **pull-back of $f$ by $F$** as $F^\ast f = f \circ F$
+
+Then, using this language, if $v \in T_p M$ then the push-forward of $v$ by $F$ is $F_\ast v = (T_p F)(v) \in T_{F(p)} N$.
+
+Note that $F_\ast v(g) = v(F^\ast g)$
+
+### Chain rule for tangent map
+
+Let $M, N, Q$ be manifolds and assume that $F \in C^\infty(M, N)$ and $G \in C^\infty(N, Q)$. Then if $p \in M$, then
+$$
+T_p (G \circ F) = T_{F(p)} G \circ T_p F
+$$
+This is because if $v \in T_p M$ and $g \in C^\infty(Q)$, then
+$$
+\begin{align*}
+(T_p (G \circ F))(v)(g) &= v((g \circ G) \circ F) \\
+&= (T_p F)(v)(g \circ G) \\
+&= (T_{F(p)} G)((T_p F)(v))(g) \\
+&= (T_{F(p)} G \circ T_p F)(v)(g)
+\end{align*}
+$$
+
+### Properties of the tangent map
+
+The tangent map of the identity map $\id_M : M \to M$ is the identity map on the tangent space:
+$$
+T_p \id_M = \id_{T_p M}
+$$
+This is because
+$$
+(T_p \id_M)(v)(g) = v(g \circ \id_M) = v(g) = \id_{T_p M} (v)(g)
+$$
+If $F \in C^\infty(M, N)$ is a diffeomorphism then $T_p F$ is a linear isomorphism between the vector spaces $T_p M$ and $T_{F(p)} $, and $(T_p F)^{-1} = T_{F(p)}(\inv F)$. We use the previous fact to prove this:
+$$
+\begin{align*}
+\id_M &= \inv F \circ F \\
+T_p \id_M &= T_p (\inv F \circ F) \\
+\id_{T_p M} &= T_{F(p)} \inv F \circ T_p F
+\end{align*}
+$$
+A similar derivation holds for $F \circ \inv F$ as well, so $T_{F(p)} \inv F$ is the inverse of $T_p F$. Since $T_p F$ is invertible, it is an isomorphism.
+
+Suppose $q \in N$ and let $F : M \to N$ be the constant map so that for all $p \in M$, $F(p) = q$. Then $T_p F$ is the zero map for all $p \in M$. To prove this, we use the fact that tangent vectors vanish for constant functions:
+$$
+T_p F(v)(g) = v(\underbrace{g \circ F}_{\text{constant}}) = 0
+$$
+
+
+### Tangent map and Jacobian matrix
+
+Suppose $U \subseteq \R^m$ and $V \subseteq \R^n$ are open, let $F \in C^\infty(U, V)$, and let $p \in U$. Then,
+$$
+T_p F \left( \frac{\partial}{\partial x^i}\bigg\vert_p \right) = \sum_j \frac{\partial y^j}{\partial x^i}\bigg\vert_p \frac{\partial}{\partial y^j}\bigg\vert_{F(p)}
+$$
+where $y = F(x)$ and $y^j = F^j(x)$.
+
+We proved earlier that
+$$
+\frac{\partial}{\partial x^1}\bigg\vert_p, ..., \frac{\partial}{\partial x^m}\bigg\vert_p
+$$
+form a basis for $T_p U$ Thus, this theorem shows that in this basis, the matrix for $T_p F$ is the Jacobian matrix. Therefore $T_p F = D_p F$ for functions between Euclidean spaces.
+
+**Proof.**
+
+Suppose $g \in C^\infty(N)$. Then,
+$$
+\begin{align*}
+T_p F \left( \frac{\partial}{\partial x^i}\bigg\vert_p \right)(g) &= \frac{\partial}{\partial x^i}\bigg\vert_p (g \circ F) \\
+&= \frac{\partial}{\partial x^i}\bigg\vert_p (g \circ y) \\
+&= \sum_j \frac{\partial y^j}{\partial x^i}\bigg\vert_p \frac{\partial g}{\partial y^j}\bigg\vert_{F(p)}
+\end{align*}
+$$
+
+### Redefinitions in terms of the tangent map
+
+Now that we see the analogy between the tangent map and the Jacobian matrix, we can make many redefinitions:
+
+Suppose $F \in C^\infty(M, N)$, then
+
+- the *rank* of $F$ at $p \in M$ is the rank of $T_p F$
+- $F$ has *maximal rank* at $p$ if $\rank_p F = \min(\dim M, \dim N)$
+- $F$ is a *submersion* if $T_p F$ is surjective for all $p \in M$
+- $F$ is an *immersion* if $T_p F$ is injective for all $p \in M$
+- $F$ is a *local diffeomorphism* if $T_p F$ is bijective for all $p \in M$
+  - note that if $T_p F$ is bijective then it is an isomorphism
+- $p \in M$ is a *critical point* of $F$ if $T_p F$ does not have maximal rank at $p$
+- $p \in N$ is a *regular value* of $F$ if $T_p F$ is surjective for all $p \in \inv F \curlies q$ (or if $q \notin F(M)$)
+- $q \in N$ is a *singular value* if it is not a regular value
+
+## Tangent spaces and submanifolds
+
+Let $S \subseteq M$ be a submanifold and let $p \in S$. Let $i : S \to M$ be the inclusion map, so for $x \in S$, $i(x) = x \in M$. Then we identify the tangent space $T_p S$ of $S$ with the image $(T_p i)(T_p S) \subseteq T_p M$.
+
+### Regular points are in the kernel of the tangent map
+
+Suppose $F \in C^\infty(M, N)$ where $\dim M = m$ and $\dim N = n$. Let $q \in N$ be a regular value of $F$, and let $S = \inv F\curlies{q}$ (so $S$ is a submanifold).
+
+Then for every $p \in S$,
+
+$$
+T_p S = \ker(T_p F) \subseteq T_p M
+$$
+
+**Proof.**
+
+$q$ is a regular value, so $T_p F$ is surjective for every $p \in \inv F \curlies q$. Thus, $\rank T_p F = n$, so $\ker(T_p F)$ has dimension $m - n$ (rank-nullity). By the regular value theorem, $\dim S = \dim \ker(T_p F)$. We also know that the tangent space of a manifold has the same dimension as the manifold, so $\dim T_p S = \dim S = \dim \ker(T_p F) = m - n$. 
+
+If we show that $T_p S \subseteq \ker(T_p F)$, then we will be done, because a vector subspace of $\ker(T_p F)$ with the same dimension must be all of $T_p F$.
+
+Using the chain rule, we know that
+$$
+T_p F \vert_{T_p S} = T_p F \circ T_p i = T_{i(p)} F \circ T_p i = T_p (F \circ i)
+$$
+$F \circ i$ is constant on $S$ since $S = \inv F \curlies q$. The tangent map of a constant function is 0 so $T_p (F \circ i) = 0$ on all of $T_p S$. However, the inclusion map has trivial null space, so this means that $T_p F$ is zero on $T_p S$, so $T_p S \subseteq \ker(T_p F)$.
+
+#### Corollary
+
+Suppose $V \subseteq \R^\ell$ is open and $F \in C^\infty(V, \R^k)$. Let $q \in \R^k$ be a regular value of $F$ and let $M = \inv F \curlies q \subseteq \R^\ell$, so $M$ is a submanifold. If $p \in M$, then
+$$
+T_p M = \ker(D_p F) \subseteq T_p \R^\ell = \R^\ell
+$$
+
+#### Example: Tangent space to $S^n$
+
+Let $p \in S^n \subseteq \R^{n+1}$. We know that if we consider the squared norm,
+
+$$
+N(x^1, ..., x^{n+1}) = (x^1)^2 + ... + (x^{n+1})^2
+$$
+
+then $S = \inv N \curlies 1$. Then the Jacobian of $N$ at $p$ is
+
+$$
+\begin{align*}
+D_p F(x) &= \lim_{t \to 0} F(p + tx) \\
+&= 2p \cdot x
+\end{align*}
+$$
+
+so the tangent space to $S^n$ at $p$ is
+
+$$
+T_p S^n = \ker(D_p F) = \curlies{x \in \R^{n+1} : p \cdot x = 0}
+$$
+
+i.e. the set of all vectors orthogonal to $p$.
+
+### Critical points of a function on a submanifold
+
+Suppose $S$ is a submanifold of $M$ with inclusion map $i : S \to M$, and $h \in C^\infty(M)$ is a smooth function. Let $f = h \vert_S = h \circ i$.
+
+Define the set of critical points:
+
+$$
+\Crit(f) = \curlies{p \in S : \rank_p f < 1}
+$$
+
+The rank of $f$ is less than one if and only if $T_p F$ is the zero map. Also, by the chain rule, $T_p f = T_p h \circ T_p i$. Then we see that
+
+$$
+\Crit(f) = \curlies{p \in S : \text{image}(T_p i) = T_p S \subseteq \ker(T_p h)}
+$$
+
+For example, let $S \subseteq \R^3$ be a submanifold and let $h(x, y, z) = z$. We know that $T_p h \cong D_p h = \begin{pmatrix} 0 & 0 & 1 \end{pmatrix}$, so
+
+$$
+\ker(T_p h) \cong \curlies{(v_1, v_2, v_3) : v_3 = 0} = \text{the } xy \text{-plane}
+$$
+
+So the critical points of $f$ are
+
+$$
+\Crit(f) = \curlies{p \in S : T_p S \subseteq \text{the } xy \text{-plane}}
+$$
+
+## Matrix Lie groups
+
+A **matrix Lie group** is a submanifold $G \subseteq \Mat_\R(n)$ that is also a subgroup with respect to multiplication, i.e.
+
+- $I \in G$
+- if $A \in G$ then $\inv A \in G$ (so every matrix in a Lie group must be invertible)
+- if $A, B \in G$ then $AB \in G$
+
+Examples:
+
+- $GL(n, \R)$, the set of all invertible $n \times n$ matrices over $\R$
+  - this is the set of all matrices with nonzero determinant, so it is an open subset of $\Mat_\R(n)$, so it is a submanifold of $\Mat_\R(n)$ with the same dimension
+- $GL(n, \C)$, the set of all invertible $n \times n$ matrices over $\C$
+  - this is similarly a submanifold of $\Mat_\C(n)$
+- $SL(n, \R) = \curlies{A \in \Mat_\R(n) : \det A = 1}$
+  - we prove below that this is a submanifold
+- $O(n) = \curlies{A \in \Mat_\R(n) : A^T A = I}$
+  - we have proved earlier that this is a submanifold
+- $U(n) = \curlies{A \in GL(n, \C) : A^\dagger A = I}$ (where $A^\dagger = \overline A\phantom{}^T$)
+- $SU(n) = \curlies{A \in U(n) : \det(A) = 1}$
+
+### Lie algebras
+
+If $G$ is a matrix Lie group, then the Lie algebra of $G$ is $T_I G \subseteq \Mat_\R(n)$, denoted as $\mathfrak g$. (Similarly, `\mathfrak` is used for other symbols denoting Lie algebras.)
+
+Examples:
+
+- $\mathfrak gl(n, \R)$ is the Lie algebra of $GL(n, \R)$
+  - it is a real vector space of dimension $\dim GL(n, \R) = n \times n$, so it is isomorphic to $\Mat_\R(n)$
+- $\mathfrak o(n)$ is the Lie algebra of $O(n)$
+  - recall that if $F(A) = A^T A$, then $D_A F(X) = X^T A + A^T X$
+  - thus $D_I F(X) = X^T + X$
+  - so $\mathfrak o(n) = \ker(D_I F) = \curlies{X : X^T + X = 0}$
+
+### $SL(n, \R)$ is a Lie group
+
+To show that $SL(n, \R)$ is a submanifold, we will show that $1$ is a regular value of the determinant function.
+
+$$
+\begin{align*}
+D_A \det(X) &= \frac{d}{dt}\bigg\vert_{t=0} \det(A + tX)
+\end{align*}
+$$
+
+The determinant is the product of the roots of the characteristic polynomial, which we can find by solving $\det(A + tX - \lambda I) = 0$.
+
+Let's consider $A = I$. Then we want to solve
+$$
+\begin{align*}
+\det(I + tX - \lambda I) &= 0 \\
+t^n\det\left(X - \frac{\lambda - 1}{t} I\right) &= 0
+\end{align*}
+$$
+
+i.e., $\lambda$ is an eigenvalue of $I + tX$ if and only if $\ds \frac{\lambda - 1}{t}$ is an eigenvalue of $X$. So the eigenvalues of $I + tX$ are
+
+$$
+1 + t\mu_1, ..., 1 + t\mu_k
+$$
+
+where $\mu_1, ..., \mu_k$ are the eigenvalues of $X$. So considering the determinant,
+
+$$
+\begin{align*}
+\det(I + tX) &= \prod_{i=1}^k (1 + t\mu_i) \\
+\frac{d}{dt}\bigg\vert_{t=0} \det(I + tX) &= \sum_{i=1}^k \mu_i \\
+(D_I \det)(X)&= \text{tr} X
+\end{align*}
+$$
+
+Now considering the derivative at any arbitrary matrix $A \in SL(n, \R)$,
+
+$$
+\begin{align*}
+(D_A \det)(X) &= \frac{d}{dt}\bigg\vert_{t=0} \det(A + tX) \\
+&= \frac{d}{dt}\bigg\vert_{t=0} \det(A(I + t\inv A X)) \\
+&= \det(A) \cdot \frac{d}{dt}\bigg\vert_{t=0} \det(I + t\inv A X) \\
+&= \det(A) \cdot (D_I \det)(\inv A X) \\
+&= \det(A) \text{tr}(\inv A X)
+\end{align*}
+$$
+
+Suppose $\det(A) = 1$, then
+$$
+(D_A \det)(X) = \text{tr}(X)
+$$
+which is surjective onto $\R$, so $\det$ has maximal rank on $SL(n, \R) = \inv \det \curlies 1$. Thus, $1$ is a regular value, so $SL(n, \R)$ is a submanifold.
+
+Calculating its Lie algebra,
+$$
+\begin{align*}
+\mathfrak{sl}(n, \R) &= T_I SL(n, \R) \\
+&= \ker(D_I \det) \\
+&= \curlies{X : \text{tr}(X) = 0}
+\end{align*}
+$$
+
+### Properties of Lie groups
+
+Let $G$ be a matrix Lie group and let $\mathfrak g = T_I G$ be its Lie algebra. Then
+
+1. if $A \in G$, $T_A G = \curlies{AX : X \in \mathfrak g} = \curlies{XA : X \in \mathfrak g}$
+2. if $A \in G$ and $X \in \mathfrak g$, then $AX\inv A \in \mathfrak g$
+3. if $X, Y \in \mathfrak g$ then so is their commutator, $[X, Y] = XY - YX \in \mathfrak g$
+
+**Proof.**
+
+*Part 1*
+
+[...]
+
+*Part 2*
+
+Suppose $A \in G$ and $X \in \mathfrak g$. Then $AX \in T_A G = \curlies{YA : Y \in \mathfrak g}$, so $AX = YA$ for some $Y \in \mathfrak g$. Then $AX\inv A = Y \in \mathfrak g$.
+
+*Part 3*
+
+Suppose $X, Y \in \mathfrak g$. Then
+
+[...]
+

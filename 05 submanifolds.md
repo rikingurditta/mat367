@@ -420,7 +420,16 @@ This follows from the work immediately previous.
 
 Consider the map $F : \R^{n+1} \to \R^n$ defined by $F(\x) = \abs{\x}^2$. Every $r > 0$ is a regular value of $F$, so $\inv F \curlies{r^2}$ defines a submanifold, specifically the sphere of radius $r$.
 
-Define $F : \Mat_\R(n) \to \text{Sym}_\R(n)$, i.e. from the $n \times n$ real matrices to the $n \times n$ symmetric matrices, as $F(A) = A^T A$. Then $O(n)$, the set of orthogonal matrices, is the preimage of the identity $I$, i.e. $\inv F \curlies I = O(n)$. Suppose $A \in O(n)$, then considering $D_A F$ as a linear map, for any $X \in \Mat_\R(n)$ we have
+Define $F$ as a function from the $n \times n$ real matrices to the $n \times n$ symmetric matrices, as
+
+$$
+\begin{align*}
+F : \Mat_\R(n) &\to \text{Sym}_\R(n) \\
+A &\mapsto A^T A
+\end{align*}
+$$
+
+Then $O(n)$, the set of orthogonal matrices, is the preimage of the identity $I$, i.e. $\inv F \curlies I = O(n)$. Suppose $A \in O(n)$, then considering $D_A F$ as a linear map, for any $X \in \Mat_\R(n)$ we have
 
 $$
 \begin{align*}
