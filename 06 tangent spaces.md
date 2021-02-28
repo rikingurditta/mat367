@@ -357,10 +357,13 @@ Note that $F_\ast v(g) = v(F^\ast g)$
 ### Chain rule for tangent map
 
 Let $M, N, Q$ be manifolds and assume that $F \in C^\infty(M, N)$ and $G \in C^\infty(N, Q)$. Then if $p \in M$, then
+
 $$
 T_p (G \circ F) = T_{F(p)} G \circ T_p F
 $$
+
 This is because if $v \in T_p M$ and $g \in C^\infty(Q)$, then
+
 $$
 \begin{align*}
 (T_p (G \circ F))(v)(g) &= v((g \circ G) \circ F) \\
@@ -373,14 +376,19 @@ $$
 ### Properties of the tangent map
 
 The tangent map of the identity map $\id_M : M \to M$ is the identity map on the tangent space:
+
 $$
 T_p \id_M = \id_{T_p M}
 $$
+
 This is because
+
 $$
 (T_p \id_M)(v)(g) = v(g \circ \id_M) = v(g) = \id_{T_p M} (v)(g)
 $$
+
 If $F \in C^\infty(M, N)$ is a diffeomorphism then $T_p F$ is a linear isomorphism between the vector spaces $T_p M$ and $T_{F(p)} $, and $(T_p F)^{-1} = T_{F(p)}(\inv F)$. We use the previous fact to prove this:
+
 $$
 \begin{align*}
 \id_M &= \inv F \circ F \\
@@ -388,31 +396,37 @@ T_p \id_M &= T_p (\inv F \circ F) \\
 \id_{T_p M} &= T_{F(p)} \inv F \circ T_p F
 \end{align*}
 $$
+
 A similar derivation holds for $F \circ \inv F$ as well, so $T_{F(p)} \inv F$ is the inverse of $T_p F$. Since $T_p F$ is invertible, it is an isomorphism.
 
 Suppose $q \in N$ and let $F : M \to N$ be the constant map so that for all $p \in M$, $F(p) = q$. Then $T_p F$ is the zero map for all $p \in M$. To prove this, we use the fact that tangent vectors vanish for constant functions:
+
 $$
 T_p F(v)(g) = v(\underbrace{g \circ F}_{\text{constant}}) = 0
 $$
 
-
 ### Tangent map and Jacobian matrix
 
 Suppose $U \subseteq \R^m$ and $V \subseteq \R^n$ are open, let $F \in C^\infty(U, V)$, and let $p \in U$. Then,
+
 $$
 T_p F \left( \frac{\partial}{\partial x^i}\bigg\vert_p \right) = \sum_j \frac{\partial y^j}{\partial x^i}\bigg\vert_p \frac{\partial}{\partial y^j}\bigg\vert_{F(p)}
 $$
+
 where $y = F(x)$ and $y^j = F^j(x)$.
 
 We proved earlier that
+
 $$
 \frac{\partial}{\partial x^1}\bigg\vert_p, ..., \frac{\partial}{\partial x^m}\bigg\vert_p
 $$
+
 form a basis for $T_p U$ Thus, this theorem shows that in this basis, the matrix for $T_p F$ is the Jacobian matrix. Therefore $T_p F = D_p F$ for functions between Euclidean spaces.
 
 **Proof.**
 
 Suppose $g \in C^\infty(N)$. Then,
+
 $$
 \begin{align*}
 T_p F \left( \frac{\partial}{\partial x^i}\bigg\vert_p \right)(g) &= \frac{\partial}{\partial x^i}\bigg\vert_p (g \circ F) \\
@@ -570,6 +584,7 @@ $$
 The determinant is the product of the roots of the characteristic polynomial, which we can find by solving $\det(A + tX - \lambda I) = 0$.
 
 Let's consider $A = I$. Then we want to solve
+
 $$
 \begin{align*}
 \det(I + tX - \lambda I) &= 0 \\
@@ -606,12 +621,15 @@ $$
 $$
 
 Suppose $\det(A) = 1$, then
+
 $$
 (D_A \det)(X) = \text{tr}(X)
 $$
+
 which is surjective onto $\R$, so $\det$ has maximal rank on $SL(n, \R) = \inv \det \curlies 1$. Thus, $1$ is a regular value, so $SL(n, \R)$ is a submanifold.
 
 Calculating its Lie algebra,
+
 $$
 \begin{align*}
 \mathfrak{sl}(n, \R) &= T_I SL(n, \R) \\
