@@ -94,7 +94,7 @@ $$
 \begin{align*}
 \frac{d}{dt} \bigg\vert_{t=0} f(\gamma(t)) &= \frac{d}{dt} \bigg\vert_{t=0} f(\inv\phi(\phi(p) + t\a)) \\
 &= \frac{d}{dt} \bigg\vert_{t=0} (f \circ \inv\phi)(\phi(p) + t\a) \\
-&= [...]
+&= \sum_{i=1}^m a^i \frac{\partial (f \circ \inv\phi)}{\partial u^i} \bigg\vert_{u=\phi(p)}
 \end{align*}
 $$
 
@@ -638,7 +638,7 @@ $$
 \end{align*}
 $$
 
-### Properties of matrix Lie algbras
+### Properties of matrix Lie algebras
 
 Let $G$ be a matrix Lie group and let $\mathfrak g = T_I G$ be its Lie algebra. Then
 
@@ -718,4 +718,5 @@ D_0 \lambda &= (D_t \gamma)(0) \cdot X \inv{\gamma(0)} - \gamma(0) X \cdot \inv{
 \end{align*}
 $$
 
-[...]
+The derivative of a curve in a vector space is still in that vector space, so $YX - XY = D_0 \lambda \in \mathfrak g$.
+
