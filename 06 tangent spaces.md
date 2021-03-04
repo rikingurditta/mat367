@@ -558,7 +558,7 @@ Examples:
 - $U(n) = \curlies{A \in GL(n, \C) : A^\dagger A = I}$ (where $A^\dagger = \overline A\phantom{}^T$)
 - $SU(n) = \curlies{A \in U(n) : \det(A) = 1}$
 
-### Lie algebras
+### Matrix Lie algebras
 
 If $G$ is a matrix Lie group, then the Lie algebra of $G$ is $T_I G \subseteq \Mat_\R(n)$, denoted as $\mathfrak g$. (Similarly, `\mathfrak` is used for other symbols denoting Lie algebras.)
 
@@ -571,7 +571,7 @@ Examples:
   - thus $D_I F(X) = X^T + X$
   - so $\mathfrak o(n) = \ker(D_I F) = \curlies{X : X^T + X = 0}$
 
-### $SL(n, \R)$ is a Lie group
+### $SL(n, \R)$ is a matrix Lie group
 
 To show that $SL(n, \R)$ is a submanifold, we will show that $1$ is a regular value of the determinant function.
 
@@ -638,7 +638,7 @@ $$
 \end{align*}
 $$
 
-### Properties of Lie groups
+### Properties of matrix Lie algbras
 
 Let $G$ be a matrix Lie group and let $\mathfrak g = T_I G$ be its Lie algebra. Then
 
@@ -650,7 +650,25 @@ Let $G$ be a matrix Lie group and let $\mathfrak g = T_I G$ be its Lie algebra. 
 
 *Part 1*
 
-[...]
+Let $Y \in T_A G$, then there is some path $\gamma : (-\delta, \delta) \to G$ with $\gamma(0) = A$ that represents $Y$. Then, since $G$ is a Euclidean space, we can identify $Y$ with
+
+$$
+Y \cong \frac{d}{dt}\bigg\vert_{t=0} \gamma(t)
+$$
+
+Define the path $\lambda(t) = \inv A \gamma(t)$, then $\lambda$ is also a path in $G$ and $\lambda(0) = I$. Then we can identify define the tangent vector $X \in \mathfrak g$ represented by $\lambda$, and we can identify $X$ with
+
+$$
+X
+\cong \frac{d}{dt}\bigg\vert_{t=0} \lambda(t)
+= \frac{d}{dt}\bigg\vert_{t=0} \inv A \gamma(t)
+= \inv A \frac{d}{dt}\bigg\vert_{t=0}
+\cong \inv A Y
+$$
+
+so $Y = AX$.
+
+The other identity can be proven similarly if we instead set $\lambda(t) = \gamma(t) \inv A$.
 
 *Part 2*
 
@@ -658,7 +676,46 @@ Suppose $A \in G$ and $X \in \mathfrak g$. Then $AX \in T_A G = \curlies{YA : Y 
 
 *Part 3*
 
-Suppose $X, Y \in \mathfrak g$. Then
+Suppose $X, Y \in \mathfrak g$. Then there is some curve $\gamma : (-\delta, \delta) \to G$ with $\gamma(0) = I$ that represents $Y$, so we can identify
+
+$$
+Y \cong \frac{d}{dt}\bigg\vert_{t=0} \gamma(t)
+$$
+
+We can define a new curve
+
+$$
+\begin{align*}
+\lambda : (-\delta, \delta) &\to \mathfrak g \\
+t &\mapsto \gamma(t) X \inv{\gamma(t)}
+\end{align*}
+$$
+
+Since $\gamma(t) \in G$, by part 2 we know that $\lambda(t) = \gamma(t) X \inv{\gamma(t)} \in \mathfrak g$.
+
+We can find the derivative of $\inv{\gamma(t)}$:
+
+$$
+\begin{align*}
+(\gamma \inv{\gamma}) &= I \\
+D_t (\gamma \inv{\gamma}) &= D_t I \\
+(D_t \gamma) \inv{\gamma} + \gamma (D_t \inv{\gamma}) &= 0 \\
+\gamma (D_t \inv{\gamma}) &= -(D_t \gamma) \inv{\gamma} \\
+D_t \inv{\gamma} &= -\inv{\gamma} (D_t \gamma) \inv{\gamma} \\
+\end{align*}
+$$
+
+Using this, we can find the derivative of $\lambda$:
+
+$$
+\begin{align*}
+D_t \lambda &= D_t (\gamma X \inv{\gamma}) \\
+&= (D_t \gamma) \cdot X \inv{\gamma} + \gamma \cdot (D_t X) \inv{\gamma} + \gamma X \cdot (D_t \inv{\gamma}) \\
+&= (D_t \gamma) \cdot X \inv{\gamma} - \gamma X \cdot -\inv{\gamma} (D_t \gamma) \inv{\gamma} \\
+D_0 \lambda &= (D_t \gamma)(0) \cdot X \inv{\gamma(0)} - \gamma(0) X \cdot \inv{\gamma(0)} (D_t \gamma)(0) \inv{\gamma(0)} \\
+&= Y X \inv I - I X \inv I Y \inv I \\
+&= YX - XY
+\end{align*}
+$$
 
 [...]
-

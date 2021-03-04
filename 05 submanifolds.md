@@ -21,7 +21,7 @@ $$
 
 ## Submanifolds
 
-Let $M$ be an $m$-dimensional manifold with Atlas $\A = \curlies{(U_\alpha, \phi_\alpha)}$.
+Let $M$ be an $m$-dimensional manifold with atlas $\A = \curlies{(U_\alpha, \phi_\alpha)}$.
 
 A set $S \subseteq M$ is a **submanifold** of dimension $k \leq m$ if for every $p \in S$, there is a coordinate chart $(U, \phi)$ around $p$ so that
 
