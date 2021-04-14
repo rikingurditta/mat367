@@ -47,6 +47,7 @@ $$
 i.e., $f$ is the input of the function, and the output is the function $p \mapsto X_p(f)$.
 
 This actually characterizes vector fields, so we can equivalently define a vector field as a map $X : C^\infty(M) \to C^\infty(M)$ satisfying
+
 $$
 X(fg) = (Xf) g + f(Xg)
 $$
@@ -92,6 +93,7 @@ $$
 $$
 
 Put more briefly,
+
 $$
 \frac{\partial}{\partial x^i} = \sum_j \frac{\partial y^j}{\partial x^i} \frac{\partial}{\partial y^i}
 $$
@@ -99,11 +101,14 @@ $$
 ### Lie bracket
 
 In general, the composition of two vector fields $X, Y \in \X(M)$ is not a vector field. For example, let $M = \R$ and define
+
 $$
 X = Y = \frac{\partial}{\partial x} \\
 \text{then } X \circ Y = \frac{\partial^2}{\partial x^2}
 $$
+
 However, the commutator $[X, Y] = X \circ Y - Y \circ X$ is always a vector field:
+
 $$
 \begin{align*}
 X \circ Y (fg) &= X((Yf) \cdot g + f \cdot (Yg)) \\
@@ -118,6 +123,7 @@ Y \circ X (fg) &= (Y \circ X)f \cdot g + (Xf) \cdot (Yg) \\
 &= [X, Y]f \cdot g + f \cdot [X, Y] g
 \end{align*}
 $$
+
 Thus, $[X, Y]$ is a derivation, so it fits our second definition of vector fields.
 
 $[X, Y]$ is called the **Lie bracket of $X$ and $Y$**.
@@ -137,13 +143,20 @@ $$
 $$
 
 Notice that in particular,
+
 $$
 \left[\frac{\partial}{\partial x^i}, \frac{\partial}{\partial x^j} \right] = 0
 $$
 
-## $F$-related vector fields
+## Related vector fields
 
-Let $F \in C^\infty(M, N)$ be a smooth map. Vector fields $X \in \X(M)$ and $Y \in \X(N)$ are **$F$-related** if $T_p F(X_p) = Y_{F(p)}$ for all $p \in M$. If $X$ and $Y$ are $F$-related, we write $X \sim_F Y$.
+Let $F \in C^\infty(M, N)$ be a smooth map. Vector fields $X \in \X(M)$ and $Y \in \X(N)$ are **$F$-related** if for all $p \in M$,
+
+$$
+T_p F(X_p) = Y_{F(p)}
+$$
+
+If $X$ and $Y$ are $F$-related, we write $X \sim_F Y$.
 
 ### Problems with push-forwards
 
@@ -159,7 +172,9 @@ If $F$ is bijective but not a diffeomorphism, then $F_* X\big\vert_q$ may not va
 
 This is why we abandon push-forwards for general smooth maps, and instead stick to $F$-relatedness.
 
-### Properties of $F$-related vector fields
+### Properties of related vector fields
+
+#### Composing relatedness
 
 Suppose $X \sim_F Y$ and $Y \sim_G Z$. Then $X \sim_{G \circ F} Z$, since
 
@@ -171,19 +186,54 @@ T_p (G \circ F) (X_p) &= T_{F(p)} G \circ T_{p} F(X_p) \\
 \end{align*}
 $$
 
-Note that if $X \in \X(M)$ and $F \in C^\infty(M, N)$, then there may be no $Y \in \X(N)$ so that $X \sim_F Y$. For example,
+#### Existence of related vector fields
 
-[...]
+Note that if $X \in \X(M)$ and $F \in C^\infty(M, N)$, then there may be no $Y \in \X(N)$ so that $X \sim_F Y$. For example, if $U \subseteq S^2$ is the subset without the south pole, i.e.
+
+$$
+U = \curlies{\x \in S^2 : \x \neq (0, 0, -1)}
+$$
+
+and we use the stereographic projection
+
+$$
+\begin{align*}
+\phi : U &\to \R^2 \\
+(x, y, z) &\mapsto \left( \frac{x}{1 + z}, \frac{y}{1 + z} \right)
+\end{align*}
+$$
+
+Then $\inv\phi \in C^\infty(\R^2, S^2)$. If $X \in \X(\R^2)$ is defined by
+
+$$
+X_{(x, y)} = x\frac{\partial}{\partial x} + y\frac{\partial}{\partial y}
+$$
+
+then $X$ is not $\inv\phi$-related to any vector field on $S^2$, as $T_p \inv\phi X \in \X(U)$ cannot be smoothly extended to a vector field on all of $S^2$. This is because around the south pole, all tangent vectors point towards the south pole and have increasingly large magnitude.
+
+#### Submersions and vector fields related to $0$
 
 If $F : M \to N$ is a submersion, $X \in \X(M)$, and $X \sim_F 0$, then we have $T_p F (X_p) = 0$ for all $p \in M$. Then for every $p \in M$, $X_p \in \ker T_p F = T_p S$, so $X$ is tangent to the level set of $F$.
+
+#### Vector fields related by projections
 
 If $\pi_1 : \R^2 \to \R$ is defined by $\pi_1(x, y) = x$ and $X \sim_{\pi_1} Y$, then
 
 [...]
 
+#### Vector fields related by antipodal identification on $S^n$
+
 Let $\pi : S^n \to \RP{n}$ denote the usual quotient map (antipodal identification), and let $F$ be the antipotdal map $F(x) = -x$. Then $X \in \X(S^n)$ and $X \sim_\pi Y$ for some $Y \in \X(\RP{n})$ if and only if $TF \circ X = X \circ F$.
 
-### $F$-related vector fields and composition
+#### Vector fields related by inclusion maps
+
+Let $S \subseteq M$ be a submanifold and let $i : S \hookrightarrow M$ be the inclusion map. Let $X \in \X(S)$ and $Y \in \X(M)$.
+
+If $X \sim_i Y$, then for all $p \in S$, we have $T_p i(X_p) = X_p = Y_{i(p)} = Y_p$, so $X$ is the restriction of $Y$ to $S$.
+
+If $0 \sim_i Y$ then for all $p \in S$, we have $0 = Y_{i(p)} = Y_p$, so $Y$ vanishes on $S$.
+
+### Related vector fields and composition
 
 Let $X \in \X(M)$, $Y \in \X(N)$, and $F \in C^\infty(M, N)$. Then $X \sim_F Y$ if and only if for all $g \in C^\infty(M)$, we have
 
@@ -197,7 +247,7 @@ $X \sim_F Y$ if and only if for all $p \in M$, $T_p F(X_p) (g) = Y_{F(p)}(g)$, s
 
 [...]
 
-### $F$-related vector fields and the Lie bracket
+### Related vector fields and the Lie bracket
 
 Let $F \in C^\infty(M, N)$ and assume that $X_1, X_2, Y_1, Y_2$ are vector fields so that $X_1 \sim_F Y_1$ and $X_2 \sim_F Y_2$. Then $[X_1, X_2] \sim_F [Y_1, Y_2]$.
 
@@ -314,7 +364,7 @@ where $\gamma_p(t) = \Phi(t, p)$ is a solution curve so that $\gamma(0) = p$.
 
 We will see later that if $M$ is compact, then $\J = \R \times M$.
 
-### $F$-related vector fields and solution curves
+### Related vector fields and solution curves
 
 Let $F \in C^\infty(M, N)$ and assume $X \in \X(M)$ and $Y \in \X(N)$ satisfy $X \sim_F Y$. Then if $\gamma : J \to M$ is a solution curve for $X$, then $F \circ \gamma : J \to M$ is a solution curve for $Y$.
 
@@ -371,13 +421,17 @@ We write $\J^X$ and $\Phi^X$ to indicate that these sets are for the vector fiel
 A vector field $X \in \X(M)$ is **complete** if $\J^X = \R \times M$, i.e. the solution curves are defined on all of $\R$.
 
 For example, the vector field
+
 $$
 X_1 = x \frac{\partial}{\partial x}
 $$
+
 on $\R$ is complete, but the vector field
+
 $$
 X_2 = x^2 \frac{\partial}{\partial x}
 $$
+
 on $\R$ is not complete.
 
 ### Vector fields with compact support are complete
@@ -390,9 +444,23 @@ Note that as a result, every vector field on a compact manifold is complete.
 
 ### Group of diffeomorphisms of a complete vector field
 
-If $X \in \X(M)$ is a complete vector field, then the functions $\Phi_t$ form a one-parameter group of diffeomorphisms.
+If $X \in \X(M)$ is a complete vector field, then the functions $\Phi_t$ form a one-parameter group of diffeomorphisms. i.e.,
 
-### $F$-related complete vector fields
+$$
+\Phi_0 = \id_M \text{ and } \Phi_s \circ \Phi_t = \Phi_{s + t}
+$$
+
+so the functions form a group of diffeomorphisms that is isomorphic to $\R$.
+
+Conversely, if we have a family of functions $\curlies{\Phi_t \in C^\infty(M, M)}$ that forms a smooth one-parameter group of diffeomorphisms, then they are the flow of a vector field $X$. This vector field satisfies
+
+$$
+X_p(f) = \frac{d}{dt} \bigg\vert_{t=0} f(\Phi_t(p))
+$$
+
+i.e., $\Phi_t$ flows in the same direction as $X$ points at every $p \in M$.
+
+### Related complete vector fields
 
 Let $F \in C^\infty(M, N)$, and $X \in \X(M)$, $Y \in \X(N)$ are complete vetor fields with flows denoted $\Phi_t^X$ and $\Phi_t^Y$. Then $X \sim_F Y$ if and only if $F \circ \Phi_t^X = \Phi_t^Y \circ Y$.
 
@@ -402,7 +470,7 @@ Let $F \in C^\infty(M, N)$, and $X \in \X(M)$, $Y \in \X(N)$ are complete vetor 
 
 [...]
 
-($\Leftarrow$) Suppose $F \circ \Phi_t^X = \Phi_t^Y \circ Y$, i.e. $F(\Phi_t^X(p)) = \Phi_t^Y(Y)
+($\Leftarrow$) Suppose $F \circ \Phi_t^X = \Phi_t^Y \circ Y$, i.e. $F(\Phi_t^X(p)) = \Phi_t^Y(Y)$
 
 ## Flows and the Lie bracket
 
@@ -415,6 +483,57 @@ If $Y \in \X(N)$, we define the [pullback? pushforward?] $F^* : \X(N) \to \X(M)$
 Equivalently, we choose $F^*$ so that the following diagram commutes:
 
 [...]
+
+### Lie derivative
+
+Suppose we have a complete vector field $X \in \X(M)$ with flow $\Phi_t$. Let $f \in C^\infty(M)$ and $Y \in \X(M)$, then we can define the pullbacks
+
+$$
+\begin{align*}
+\Phi_t^* f &= f \circ \Phi_t \in C^\infty(M) \\
+\Phi_t^* Y &= Y \circ \Phi_t \in \X(M)
+\end{align*}
+$$
+
+Using this, we can define the **Lie derivative** of $f$ by $X$ as
+
+$$
+L_X f = \frac{d}{dt} \bigg\vert_{t=0} \Phi_t^* f \in C^\infty(M)
+$$
+
+Note that if $p \in M$, then
+
+$$
+\begin{align*}
+L_X f(p) &= \frac{d}{dt} \bigg\vert_{t=0} \Phi_t^* f(p) \\
+&= \frac{d}{dt} \bigg\vert_{t=0} f \circ \Phi_t(p) \\
+&= X_p(f)
+\end{align*}
+$$
+
+We can similarly define the Lie derivative of $Y$ by $X$ as
+
+$$
+L_X Y = \frac{d}{dt} \bigg\vert_{t=0} \Phi_t^* Y \in \X(M)
+$$
+
+Note that these definitions work for incomplete vector fields as well.
+
+The Lie derivative is meant to capture the change in something, either a function of a vector field, if we move along $X$. It is defined this way because the flow $\Phi_t$ always moves along the directions of $X$ with $t$, by definition.
+
+### Lie derivative of a vector field is equal to Lie bracket
+
+Let $X, Y \in \X(M)$, $f \in C^\infty(M)$, and $p \in M$. Let $X$ be complete, and let $\Phi_t$ be its flow. Then,
+
+[...]
+
+so
+
+$$
+L_X Y = [X, Y]
+$$
+
+This shows us that $[X, Y]$ measures the change in $Y$ in the direction of $X$ at every point.
 
 ## Frobenius' Theorem
 
@@ -435,7 +554,9 @@ If $r > 1$, then integral submanifolds might not exist. However, if $X_1, X_2$ a
 ### Lemma: Flow straightening
 
 Let $X \in \X(M)$ and let $p \in M$ be a point where $X_p \neq 0$. Then there exists a coordinate chart $(U, \phi)$ around $p$ so that
+
 $$
 X \sim_\phi \frac{\partial}{\partial x^1}
 $$
+
 Suppose $X$ is complete. Let $N \subseteq M$ be an $m-1$-dimensional submanifold containing $p$ such that $X_p \notin T_p N$.
