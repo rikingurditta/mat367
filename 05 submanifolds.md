@@ -10,13 +10,20 @@ $$
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Crit}{Crit}
 
 \newcommand{\A}{\mathcal A}
+\newcommand{\J}{\mathcal J}
 \newcommand{\RP}[1]{\R P^{#1}}
 \newcommand{\CP}[1]{\C P^{#1}}
 
+\newcommand{\bzero}{\mathbf 0}
+\newcommand{\a}{\mathbf a}
+\newcommand{\p}{\mathbf p}
+\newcommand{\u}{\mathbf u}
 \newcommand{\x}{\mathbf x}
 \newcommand{\y}{\mathbf y}
+\newcommand{\X}{\mathfrak X}
 $$
 
 ## Submanifolds
@@ -51,7 +58,7 @@ $$
 
 where $(U, \phi)$ is a submanifold chart and $\phi' = \pi \circ \phi$.
 
-Then $\A'$ is an atlas for $S$ to make it a $k$-dimensional manifold, and the inclusion map $i: S \to M$ is smooth.
+Then $\A'$ is an atlas for $S$ to make it a $k$-dimensional manifold, and the inclusion map $i: S \hookrightarrow M$ is smooth.
 
 **Proof.**
 

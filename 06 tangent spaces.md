@@ -13,6 +13,7 @@ $$
 \DeclareMathOperator{\Crit}{Crit}
 
 \newcommand{\A}{\mathcal A}
+\newcommand{\J}{\mathcal J}
 \newcommand{\RP}[1]{\R P^{#1}}
 \newcommand{\CP}[1]{\C P^{#1}}
 
@@ -22,6 +23,7 @@ $$
 \newcommand{\u}{\mathbf u}
 \newcommand{\x}{\mathbf x}
 \newcommand{\y}{\mathbf y}
+\newcommand{\X}{\mathfrak X}
 $$
 
 ## Tangent spaces

@@ -6,12 +6,24 @@ $$
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\angles}[1]{\left\langle #1 \right\rangle}
 \newcommand{\inv}[1]{#1^{-1}}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Crit}{Crit}
 
 \newcommand{\A}{\mathcal A}
+\newcommand{\J}{\mathcal J}
 \newcommand{\RP}[1]{\R P^{#1}}
+\newcommand{\CP}[1]{\C P^{#1}}
 
+\newcommand{\bzero}{\mathbf 0}
+\newcommand{\a}{\mathbf a}
+\newcommand{\p}{\mathbf p}
+\newcommand{\u}{\mathbf u}
 \newcommand{\x}{\mathbf x}
 \newcommand{\y}{\mathbf y}
+\newcommand{\X}{\mathfrak X}
 $$
 
 ## Intro to manifolds
@@ -178,13 +190,16 @@ so in conclusion,
 $$
 E = \curlies{x + A_I(x) : x \in \R^I} = \begin{pmatrix} \id_k \\ A_I \end{pmatrix} \R^I
 $$
+
 If $L(\R^I, \R^{I'})$ is the set of linear maps from $\R^I$ to $\R^{I'}$, then the work above gives us a bijection between elements of $Gr(k, n)$ and $L(\R^I, \R^{I'})$. Each linear map in $L(\R^I, \R^{I'})$ corresponds to a unique matrix in $\Mat_\R((n-k) \times k)$, so we now have a bijection
+
 $$
 \begin{align*}
 \phi : U_I &\to \Mat_\R((n-k) \times k) \\
 E &\mapsto A_I
 \end{align*}
 $$
+
 $\Mat_\R((n-k) \times k) \cong \R^{(n-k) \times k}$, so we can consider the pair $(U, \phi)$ to be a chart for $Gr(k, n)$.
 
 [...]

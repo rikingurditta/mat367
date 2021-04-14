@@ -6,12 +6,24 @@ $$
 \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\angles}[1]{\left\langle #1 \right\rangle}
 \newcommand{\inv}[1]{#1^{-1}}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\Crit}{Crit}
 
 \newcommand{\A}{\mathcal A}
+\newcommand{\J}{\mathcal J}
 \newcommand{\RP}[1]{\R P^{#1}}
+\newcommand{\CP}[1]{\C P^{#1}}
 
+\newcommand{\bzero}{\mathbf 0}
+\newcommand{\a}{\mathbf a}
+\newcommand{\p}{\mathbf p}
+\newcommand{\u}{\mathbf u}
 \newcommand{\x}{\mathbf x}
 \newcommand{\y}{\mathbf y}
+\newcommand{\X}{\mathfrak X}
 $$
 
 ## Open sets
