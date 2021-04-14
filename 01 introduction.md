@@ -173,4 +173,18 @@ x &= \pi_I(x) + \pi_{I'}(x) \\
 \end{align*}
 $$
 
-so $E = \curlies{x + A_I(x)}$.
+so in conclusion,
+
+$$
+E = \curlies{x + A_I(x) : x \in \R^I} = \begin{pmatrix} \id_k \\ A_I \end{pmatrix} \R^I
+$$
+If $L(\R^I, \R^{I'})$ is the set of linear maps from $\R^I$ to $\R^{I'}$, then the work above gives us a bijection between elements of $Gr(k, n)$ and $L(\R^I, \R^{I'})$. Each linear map in $L(\R^I, \R^{I'})$ corresponds to a unique matrix in $\Mat_\R((n-k) \times k)$, so we now have a bijection
+$$
+\begin{align*}
+\phi : U_I &\to \Mat_\R((n-k) \times k) \\
+E &\mapsto A_I
+\end{align*}
+$$
+$\Mat_\R((n-k) \times k) \cong \R^{(n-k) \times k}$, so we can consider the pair $(U, \phi)$ to be a chart for $Gr(k, n)$.
+
+[...]

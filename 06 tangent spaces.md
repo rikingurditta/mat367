@@ -676,10 +676,10 @@ Suppose $A \in G$ and $X \in \mathfrak g$. Then $AX \in T_A G = \curlies{YA : Y 
 
 *Part 3*
 
-Suppose $X, Y \in \mathfrak g$. Then there is some curve $\gamma : (-\delta, \delta) \to G$ with $\gamma(0) = I$ that represents $Y$, so we can identify
+Suppose $X, Y \in \mathfrak g$. Then there is some curve $\gamma : (-\delta, \delta) \to G$ with $\gamma(0) = I$ that represents $X$, so we can identify
 
 $$
-Y \cong \frac{d}{dt}\bigg\vert_{t=0} \gamma(t)
+X \cong \frac{d}{dt}\bigg\vert_{t=0} \gamma(t)
 $$
 
 We can define a new curve
@@ -687,11 +687,11 @@ We can define a new curve
 $$
 \begin{align*}
 \lambda : (-\delta, \delta) &\to \mathfrak g \\
-t &\mapsto \gamma(t) X \inv{\gamma(t)}
+t &\mapsto \gamma(t) Y \inv{\gamma(t)}
 \end{align*}
 $$
 
-Since $\gamma(t) \in G$, by part 2 we know that $\lambda(t) = \gamma(t) X \inv{\gamma(t)} \in \mathfrak g$.
+Since $\gamma(t) \in G$, by part 2 we know that $\lambda(t) = \gamma(t) Y \inv{\gamma(t)} \in \mathfrak g$.
 
 We can find the derivative of $\inv{\gamma(t)}$:
 
@@ -709,14 +709,14 @@ Using this, we can find the derivative of $\lambda$:
 
 $$
 \begin{align*}
-D_t \lambda &= D_t (\gamma X \inv{\gamma}) \\
-&= (D_t \gamma) \cdot X \inv{\gamma} + \gamma \cdot (D_t X) \inv{\gamma} + \gamma X \cdot (D_t \inv{\gamma}) \\
-&= (D_t \gamma) \cdot X \inv{\gamma} - \gamma X \cdot -\inv{\gamma} (D_t \gamma) \inv{\gamma} \\
-D_0 \lambda &= (D_t \gamma)(0) \cdot X \inv{\gamma(0)} - \gamma(0) X \cdot \inv{\gamma(0)} (D_t \gamma)(0) \inv{\gamma(0)} \\
-&= Y X \inv I - I X \inv I Y \inv I \\
-&= YX - XY
+D_t \lambda &= D_t (\gamma Y \inv{\gamma}) \\
+&= (D_t \gamma) \cdot Y \inv{\gamma} + \gamma \cdot (D_t X) \inv{\gamma} + \gamma Y \cdot (D_t \inv{\gamma}) \\
+&= (D_t \gamma) \cdot Y \inv{\gamma} + \gamma Y \cdot (-\inv{\gamma} (D_t \gamma) \inv{\gamma} )\\
+D_0 \lambda &= D_0 \gamma \cdot Y \cdot \inv{\gamma(0)} - \gamma(0) \cdot Y \cdot \inv{\gamma(0)} \cdot D_0 \gamma \cdot  \inv{\gamma(0)} \\
+&= X Y \inv I - I Y \inv I X \inv I \\
+&= XY - YX
 \end{align*}
 $$
 
-The derivative of a curve in a vector space is still in that vector space, so $YX - XY = D_0 \lambda \in \mathfrak g$.
+The derivative of a curve in a vector space is still in that vector space, so $[X, Y] = XY-YX = D_0 \lambda \in \mathfrak g$.
 
