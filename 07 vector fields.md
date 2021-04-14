@@ -476,9 +476,9 @@ Let $F \in C^\infty(M, N)$, and $X \in \X(M)$, $Y \in \X(N)$ are complete vetor 
 
 ### Pushforwards and pullbacks of vector fields
 
-If $F \in C^\infty(M, N)$ is a diffeomorphism, we can define pushforwards and pullbacs by $F$ of vector fields.
+If $F \in C^\infty(M, N)$ is a diffeomorphism, we can define pushforwards and pullbacks by $F$ of vector fields.
 
-If $Y \in \X(N)$, we define the [pullback? pushforward?] $F^* : \X(N) \to \X(M)$ as the unique function so that $(F^* Y)(F^*g) = F^*(Y(g))$ for all $g \in C^\infty(N)$.
+If $Y \in \X(N)$, we define the pullback $F^* : \X(N) \to \X(M)$ as the unique function so that $(F^* Y)(F^*g) = F^*(Y(g))$ for all $g \in C^\infty(N)$.
 
 Equivalently, we choose $F^*$ so that the following diagram commutes:
 
