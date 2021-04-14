@@ -347,7 +347,7 @@ which is what we wanted to show.
 
 ### Push-forwards and pull-backs
 
-Let $F \in C^\infty(M, N)$. We can use $F$ to *transport* between certain "objects defined on $M$" and "objects defined on $N$:
+Let $F \in C^\infty(M, N)$. We can use $F$ to *transport* between certain "objects defined on $M$" and "objects defined on $N$":
 
 - if $I \subseteq \R$ is an interval and $\gamma \in C^\infty(I, M)$ is a smooth curve, then we can define the **push-forward of $\gamma$ by $F$** as $F _\ast \gamma = F \circ \gamma$
 - given $f \in C^\infty(N)$, we can define the **pull-back of $f$ by $F$** as $F^\ast f = f \circ F$
